@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+:root{
+    font-family: 'Abel', sans-serif;
+}
+
+/*main container*/
+
+.main::before{
+    content: '\0020';
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.main::after{
+    clear: both;
+}
+
+/* col*/
+.col {
+    position: relative
+}
+
+/*toggle button and content*/
+.toggle,
+.open-it {
+    display: none
+}
+.label-toggle {
+    cursor: pointer;
+    display: inline-block;
+    left: 1em;
+    position: absolute;
+    top: .5em;
+}
+.label-toggle:hover path {
+    fill: #f1280d57
+}
+.label-toggle svg {
+    height: 1.25em;
+    width: 1.25em
+}
+.label-toggle path {
+    fill: rgba(23, 40, 92, 0.835)
+}
+@media (max-width: 650px) {
+    .label-toggle {
+        display: none
+    }
+}
+.toggle:checked ~ .main .col-left {
+    transform: translateX(-98%);
+    transition: .2s;
+    z-index: 1
+}
+.toggle:checked ~ .main .col-right,
+.toggle:checked ~ .col-right {
+    width: 100%
+}
+.toggle:checked ~ .main .close-it {
+    display: none
+}
+.toggle:checked ~ .main .open-it {
+    display: block
+}
+
+/*col-left*/
+.col-left {
+    background: #354c7a;
+    transition: .2s
+}
+@media (min-width: 650px) {
+    .col-left {
+        bottom: 0;
+        left: 0;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding-bottom: 5em;
+        position: fixed;
+        top: 0;
+        width: 30%
+    }
+}
+
+/*col-right*/
+@media (min-width: 650px) {
+    .col-right {
+        float: right;
+        transition: .2s;
+        width: 70%;
+        
+    }
+}
