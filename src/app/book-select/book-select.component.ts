@@ -24,18 +24,23 @@ export class BookSelectComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    //solo para verificar en la consola
     console.log('books select!');
+
+
     this.route.paramMap.subscribe(params => {
       const id= params.get('id');
       this.api.getBook(id).subscribe(book => {
+      //si refresco desaparece el author ._.
       this.author = book.author;
       this.api.getResume(id). subscribe(resume =>{
         this.title = resume.title;
         this.cover = resume.cover;
         this.resume = resume.resume;
 
-       console.log(this.resume)
+        
+      //solo para verificar en la consola
+      console.log(this.resume)
 
         });
       });

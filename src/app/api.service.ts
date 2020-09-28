@@ -32,7 +32,7 @@ export class ApiService {
     //some books not have cover, maybe a conditional?
         cover: data.details['cover'],
         title: data.details['title'],
-    // if description is type string catch else catch value objet, else  show text
+    // some books not have resume, if description is type string catch else catch value objet, else show text
         resume:
           typeof(data.details.description) == 'string' ? data.details.description :
           typeof(data.details.description) == 'object' ? data.details.description.value :
